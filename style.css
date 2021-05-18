@@ -103,8 +103,7 @@ body {
 
 .socials a {
   display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+  place-items: center;
   height: 30px;
   width: 30px;
   border-radius: 50%;
@@ -166,5 +165,12 @@ body {
 
   .socials {
     padding: 0 0 1rem;
+  }
+
+  .attribution {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
   }
 }
