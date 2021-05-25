@@ -111,6 +111,10 @@ body {
   color: var(--blue);
 }
 
+.socials a .fab {
+  line-height: 30px;
+}
+
 .socials a:hover {
   background-color: var(--blue);
   border: none;
