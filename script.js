@@ -2,11 +2,11 @@ const form = document.getElementById('form');
 const email = document.getElementById('email');
 const submitBtn = document.getElementById('submit-button');
 
-function isEmail(email) {
-  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-    email
-  );
-}
+form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  checkInput();
+});
 
 function setErrorFor(input, message) {
   const inputContainer = input.parentElement;
@@ -21,15 +21,18 @@ function setErrorFor(input, message) {
 function checkInput() {
   const emailValue = email.value.trim();
 
-  if (emailValue === '') {
+  if (!emailValue) {
     setErrorFor(email, 'Whoops! It looks like you forgot to add your email');
   } else if (!isEmail(emailValue)) {
     setErrorFor(email, 'Please provide a valid email address');
+  } else {
+    alert('Success');
+    email.value = '';
   }
 }
 
-form.addEventListener('submit', e => {
-  e.preventDefault();
-
-  checkInput();
-});
+function isEmail(email) {
+  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    email
+  );
+}
